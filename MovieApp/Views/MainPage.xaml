@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieApp.Views.MainPage"
+             BackgroundColor="Black">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <!-- Carrusel de imágenes de películas -->
+            <CarouselView HeightRequest="250"
+                          ItemsSource="{Binding FeaturedMovies}"
+                          HorizontalScrollBarVisibility="Never">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="False" Padding="0">
+                            <Image Source="{Binding ImageUrl}" Aspect="AspectFill"/>
+                        </Frame>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+
+            <!-- Espaciado -->
+            <BoxView HeightRequest="20"/>
+
+            <!-- Lista horizontal de películas populares -->
+            <Label Text="Populares" TextColor="White" FontSize="18" Margin="10,0"/>
+            <CollectionView ItemsSource="{Binding PopularMovies}" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding ImageUrl}" WidthRequest="120" HeightRequest="180" Aspect="AspectFill"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
