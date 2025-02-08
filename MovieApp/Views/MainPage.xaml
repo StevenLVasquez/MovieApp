@@ -8,23 +8,37 @@
         <VerticalStackLayout>
 
             <!-- Carrusel de imágenes de películas -->
-            <CarouselView HeightRequest="250"
+            <CarouselView HeightRequest="750"
                           ItemsSource="{Binding FeaturedMovies}"
                           HorizontalScrollBarVisibility="Never">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <Frame HasShadow="False" Padding="0">
-                            <Image Source="{Binding ImageUrl}" Aspect="AspectFill"/>
+                            <Image Source="{Binding ImageUrl}" Aspect="Center"/>
                         </Frame>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
 
             <!-- Espaciado -->
-            <BoxView HeightRequest="20"/>
+            <BoxView HeightRequest="5"/>
 
             <!-- Lista horizontal de películas populares -->
-            <Label Text="Populares" TextColor="White" FontSize="18" Margin="10,0"/>
+            <Label Text="Populares" TextColor="White" FontSize="25" Margin="20,0"/>
+            <CollectionView ItemsSource="{Binding PopularMovies}" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding ImageUrl}" WidthRequest="120" HeightRequest="180" Aspect="AspectFill">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnImageTapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+            <Label Text="Mas Vistas" TextColor="White" FontSize="25" Margin="10,0"/>
             <CollectionView ItemsSource="{Binding PopularMovies}" ItemsLayout="HorizontalList">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -33,6 +47,19 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+            <Label Text="Mas Destacadas" TextColor="White" FontSize="25" Margin="10,0"/>
+            <CollectionView ItemsSource="{Binding PopularMovies}" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding ImageUrl}" WidthRequest="120" HeightRequest="180" Aspect="AspectFill"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <VerticalStackLayout  HorizontalOptions="Center" Padding="10">
+                <Button Text="Trending" BackgroundColor="Transparent" TextColor="White" BorderColor="White" Clicked="Button_Clicked_1"/>
+                <Button Text="Cuenta" BackgroundColor="Transparent" TextColor="White" BorderColor="White" Clicked="Button_Clicked"/>
+                <Button Text="Exit" BackgroundColor="Red" TextColor="White" BorderColor="White" Clicked="OnExitClicked"/>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 

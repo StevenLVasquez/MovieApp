@@ -20,6 +20,9 @@ namespace MovieApp.ViewModels
             LoadMovies();
         }
 
+       
+
+
         private async void LoadMovies()
         {
             var trendingMovies = await _movieService.GetTrendingMoviesAsync();
