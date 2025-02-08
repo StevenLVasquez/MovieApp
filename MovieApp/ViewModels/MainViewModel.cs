@@ -3,7 +3,7 @@ using MovieApp.Models;
 using MovieApp.Services;
 
 namespace MovieApp.ViewModels
-{
+{//prueba
     public class MainViewModel
     {
         private readonly MovieService _movieService;
